@@ -106,18 +106,22 @@ def _event_details(request):
 
 def _message(request):
     idea, date_text, slot, ride_text = _event_details(request)
-    date_display = date_text
+
     try:
-        date_display = datetime.strptime(date_text, "%Y-%m-%d").strftime("%A, %d %B %Y")
+        date_display = datetime.strptime(
+            date_text, "%Y-%m-%d"
+        ).strftime("%A, %d %B %Y")
     except ValueError:
-        pass
+        date_display = date_text
+
     return (
-        "IT'S A DATE! 💗✨\n\n"
-        f"📍 Plan: {idea.get('emoji', '💗')} {idea.get('title', 'Our date')}\n"
-        f"📅 Date: {date_display}\n"
-        f"⏰ Time: {slot}\n"
-        f"🚙 Ride: {ride_text}\n\n"
-        f"Can't wait!! 💕\\n— {config.INVITER_NAME}"
+        "IT'S A DATE!\n\n"
+        f"Plan: {idea.get('title', 'Our date')}\n"
+        f"Date: {date_display}\n"
+        f"Time: {slot}\n"
+        f"Ride: {'Yes please' if request.session.get('ride') == 'yes' else 'I am good'}\n\n"
+        "Can't wait!!\n"
+        f"— {config.INVITER_NAME}"
     )
 
 def celebration(request):
