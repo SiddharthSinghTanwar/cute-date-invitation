@@ -1,0 +1,66 @@
+* { box-sizing: border-box; }
+:root { --pink:#f04b83; --red:#f43f4f; --purple:#8b4be8; --ink:#55405e; --muted:#927f9a; --paper:#fffdfd; }
+body { margin:0; min-height:100vh; color:var(--ink); font-family:'Nunito','Quicksand',sans-serif; background:radial-gradient(ellipse at 15% 12%,#fff1f5 0,transparent 40%),radial-gradient(ellipse at 90% 90%,#f0eaff 0,transparent 38%),linear-gradient(135deg,#fffafa,#fff9f2 55%,#fbf7ff); display:flex; align-items:center; justify-content:center; overflow-x:hidden; }
+.page-shell { width:100%; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:30px 16px; position:relative; z-index:1; }
+.card { width:min(100%,510px); padding:36px clamp(22px,6vw,48px); text-align:center; background:rgba(255,255,255,.77); border:1px solid rgba(244,151,187,.35); border-radius:30px; box-shadow:0 18px 60px rgba(177,115,163,.13),inset 0 1px #fff; backdrop-filter:blur(8px); }
+.invite-card { padding-top:28px; }
+h1,h2,p { margin-top:0; }
+h1 { font-size:clamp(1.75rem,5vw,2.45rem); line-height:1.2; font-weight:900; margin-bottom:12px; }
+h2 { font-size:1.12rem; font-weight:800; margin-bottom:8px; }
+.gradient-text { background:linear-gradient(95deg,#f04b83,#a34be5); color:transparent; background-clip:text; -webkit-background-clip:text; }
+.yay { font-size:3rem; margin:8px 0 0; }
+.eyebrow,.subtext,.microcopy { color:var(--muted); }
+.eyebrow { font-size:.84rem; letter-spacing:.07em; text-transform:uppercase; margin:10px 0 8px; }
+.subtext { margin:8px 0 22px; font-size:.98rem; }
+.microcopy { font-size:.82rem; margin:16px 0 0; }
+.top-heart,.big-heart { color:#f34e8a; font-size:2.2rem; animation:heartbeat 1.5s ease-in-out infinite; }
+.cat-frame { width:178px; height:178px; margin:20px auto 18px; border-radius:25px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; box-shadow:0 8px 18px #b77ca326; }
+.pink-frame { border:3px solid #f4b1cb; background:linear-gradient(145deg,#fff3d8,#ffe4ee); }
+.yellow-frame { border:3px solid #f2d84d; background:linear-gradient(145deg,#fff5b9,#ffead6); }
+.cat-face { font-size:6.3rem; filter:drop-shadow(0 6px 3px #75514b1a); }
+.tiny-heart { position:absolute; top:15px; right:17px; color:#f04b83; }
+.small-cat { width:120px; height:120px; margin:0 auto 10px; border-radius:24px; }
+.small-cat .cat-face { font-size:5rem; }
+.button { border:0; border-radius:999px; min-height:48px; padding:13px 22px; font-family:inherit; font-size:1rem; font-weight:900; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; transition:transform .18s,box-shadow .18s,filter .18s; }
+.button:hover { filter:brightness(1.03); box-shadow:0 8px 18px #8b4be82b; }
+.button:active { transform:scale(.97); }
+.yes-button { width:min(100%,250px); color:white; background:linear-gradient(100deg,#f04b83,#f23849); box-shadow:0 8px 20px #f04b8330; }
+.invite-actions { display:flex; align-items:center; justify-content:center; gap:12px; position:relative; min-height:56px; flex-wrap:wrap; }
+.no-button { background:transparent; color:#d9ccd8; font-size:.75rem; min-height:30px; padding:5px 10px; opacity:.22; position:relative; }
+.no-button:hover { opacity:.45; }
+.primary-button { color:white; background:linear-gradient(100deg,#f04b83,#8f55e9); width:100%; margin-top:8px; }
+.stack-form { display:flex; flex-direction:column; text-align:left; gap:10px; }
+.stack-form label { font-size:.9rem; font-weight:800; margin-top:4px; }
+select,input[type=date] { width:100%; min-height:48px; border:2px solid #e4c4f3; border-radius:13px; background:#fffefa; color:#66536c; padding:11px 14px; font-family:inherit; font-size:.95rem; outline:none; box-shadow:0 4px 12px #8b4be810; }
+select:focus,input:focus { border-color:#ad75e9; box-shadow:0 0 0 3px #b989ed24; }
+.back-link { display:inline-block; margin-top:18px; color:#a17aab; font-size:.82rem; text-decoration:none; }
+.back-link:hover { color:#8146ca; text-decoration:underline; }
+.mini-hearts { color:#a34be5; font-size:1.3rem; margin-bottom:10px; }
+.schedule-card { max-width:540px; }
+.ride-doodle { font-size:3rem; margin-bottom:12px; }
+.ride-actions { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:28px; }
+.ride-yes { color:#fff; background:linear-gradient(100deg,#22a95d,#5bcf8b); }
+.ride-no { color:#fff; background:linear-gradient(100deg,#287ce7,#20a7d0); }
+.celebration-card { max-width:540px; }
+.confetti { color:#f28bb0; letter-spacing:.4rem; font-size:1.2rem; margin-bottom:12px; }
+.celebration-title { margin-bottom:22px; }
+.summary-card { text-align:left; padding:22px; border:1px solid #f4c7d6; border-radius:20px; background:linear-gradient(145deg,#fff8fb,#fffdfd); margin-bottom:18px; }
+.summary-card h2 { text-align:center; color:#d84d8b; font-size:1.45rem; }
+.summary-card p { margin:12px 0; font-size:.94rem; overflow-wrap:anywhere; }
+.summary-card .microcopy { text-align:center; margin-bottom:0; }
+.whatsapp-button,.calendar-button { width:100%; margin:5px 0; color:white; }
+.whatsapp-button { background:linear-gradient(100deg,#1ca65b,#36c879); }
+.calendar-button { background:linear-gradient(100deg,#8b4be8,#b25bdc); }
+.notice { background:#fff5d9; border:1px solid #f3d77b; border-radius:14px; padding:13px; font-size:.85rem; overflow-wrap:anywhere; }
+.error { background:#fff0f1; color:#c83258; padding:10px; border-radius:12px; font-size:.9rem; }
+.sparkle { position:fixed; color:#e9a3c4; opacity:.55; pointer-events:none; font-size:1.7rem; animation:floaty 5s ease-in-out infinite; }
+.sparkle-one { top:12%; left:8%; }.sparkle-two { top:23%; right:9%; font-size:2rem; animation-delay:-2s; }.sparkle-three { bottom:13%; left:13%; animation-delay:-3s; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@keyframes heartbeat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.12)} }
+@keyframes floaty { 0%,100%{transform:translateY(0) rotate(-8deg)} 50%{transform:translateY(-15px) rotate(8deg)} }
+@media(max-width:420px) { .card { padding:28px 20px; border-radius:24px; } .cat-frame { width:155px;height:155px; } .ride-actions { grid-template-columns:1fr; } .button { font-size:.95rem; } }
+
+.cat-photo { width:100%; height:100%; object-fit:cover; display:block; }
+.step-cat { display:block; width:150px; height:95px; object-fit:cover; border:3px solid #f4b1cb; border-radius:20px; margin:0 auto 14px; box-shadow:0 8px 18px #b77ca326; }
+.ride-cat { width:150px; height:90px; }
+.celebration-cat { width:170px; height:100px; margin-bottom:12px; }
