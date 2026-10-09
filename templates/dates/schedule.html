@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}when works for you? ✨{% endblock %}
+{% block content %}
+<section class="card schedule-card">
+  <div class="mini-hearts">♡ ✧ ♡</div><img class="step-cat" src="{% static 'dates/images/cat_schedule.jpg' %}" alt="A sleepy kitten">
+  <h1 class="gradient-text">when works for you? ✨</h1>
+  <p class="subtext">choose a day and time for our little date</p>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" class="stack-form">{% csrf_token %}
+    <label for="date">🗓️ date:</label>
+    <input id="date" name="date" type="date" min="{{ today }}" required>
+    <label for="time">🕒 time:</label>
+    <select id="time" name="time" required>
+      <option value="" selected disabled>pick a time! ⏰</option>
+      {% for key, label, start, end in slots %}
+      <option value="{{ key }}">{{ label }}</option>
+      {% endfor %}
+    </select>
+    <button class="button primary-button" type="submit">sounds perfect! 💗</button>
+  </form>
+  <p class="microcopy">we can always adjust the plan together ♡</p>
+</section>
+{% endblock %}

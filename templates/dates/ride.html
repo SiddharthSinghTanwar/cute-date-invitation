@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}do you need a ride? 🚙{% endblock %}
+{% block content %}
+<section class="card ride-card">
+  <img class="step-cat ride-cat" src="{% static 'dates/images/cat_ride.jpg' %}" alt="A kitten asking about your ride"><div class="ride-doodle">🚙 ✨</div>
+  <h1 class="gradient-text">do you need a ride?</h1>
+  <p class="subtext">I'll make sure you get there safely 💗</p>
+  <form method="post" class="ride-actions">{% csrf_token %}
+    <button class="button ride-yes" name="ride" value="yes" type="submit">yes please! 💚</button>
+    <button class="button ride-no" name="ride" value="no" type="submit">i'm good! 💙</button>
+  </form>
+</section>
+{% endblock %}

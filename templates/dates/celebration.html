@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}it's a date! 💕{% endblock %}
+{% block content %}
+<section class="card celebration-card">
+  <div class="confetti">✦ · ♡ · ✧ · ♥ · ✦</div>
+  <img class="step-cat celebration-cat" src="{% static 'dates/images/cat_celebration.jpg' %}" alt="A happy kitten celebrating"><div class="big-heart">♥</div>
+  <h1 class="gradient-text celebration-title">it's a date! 💙</h1>
+  <div class="summary-card">
+    <h2>can't wait!! ✨</h2>
+    <p><strong>📍 plan:</strong> {{ idea.emoji }} {{ idea.title }}</p>
+    <p><strong>🗓️ date:</strong> {{ date }}</p>
+    <p><strong>⏰ time:</strong> {{ time_label }}</p>
+    <p><strong>🚙 ride:</strong> {% if ride == "yes" %}yes please 💚{% else %}i'm good 💙{% endif %}</p>
+    <p class="microcopy">I'll text you the details 💌</p>
+  </div>
+  {% if phone_configured %}
+    <a class="button whatsapp-button" href="{{ whatsapp_url }}" target="_blank" rel="noopener">send details on WhatsApp 💬</a>
+  {% else %}
+    <div class="notice">WhatsApp is almost ready! Add the recipient's number in <code>date_invite/config.py</code>.</div>
+  {% endif %}
+  <a class="button calendar-button" href="{% url 'calendar_invite' %}">add to your calendar 📅</a>
+  <p class="microcopy">WhatsApp opens with a message ready — just tap send 💗</p>
+  <a class="back-link" href="{% url 'start_over' %}">replay the magic ↺</a>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}where do you wanna go? 💗{% endblock %}
+{% block content %}
+<section class="card">
+  <div class="cat-frame yellow-frame small-cat"><img class="cat-photo" src="{% static 'dates/images/cat_activity.jpg' %}" alt="A curious kitten"></div>
+  <h1 class="gradient-text yay">yay! 🎉</h1>
+  <h2>where do you wanna go? ✧</h2>
+  <p class="subtext">pick the adventure, cutie ✨</p>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" class="stack-form">{% csrf_token %}
+    <label class="sr-only" for="idea">Pick a date idea</label>
+    <select id="idea" name="idea" required>
+      <option value="" selected disabled>pick one! ✨</option>
+      {% for idea in ideas %}
+      <option value="{{ idea.pk }}">{{ idea.emoji }} {{ idea.title }}{% if idea.description %} — {{ idea.description }}{% endif %}</option>
+      {% endfor %}
+    </select>
+    <button class="button primary-button" type="submit">that's the one! 💘</button>
+  </form>
+  <a class="back-link" href="{% url 'start_over' %}">start over ↺</a>
+</section>
+{% endblock %}

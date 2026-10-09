@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}wanna go on a date? 💗{% endblock %}
+{% block content %}
+<section class="card invite-card">
+  <div class="top-heart">♥</div>
+  <p class="eyebrow">a very important question...</p>
+  <h1 class="gradient-text">wanna go on a date? <span>💕</span></h1>
+  <div class="cat-frame pink-frame"><img class="cat-photo" src="{% static 'dates/images/cat_invitation.jpg' %}" alt="A cute kitten looking at you"><span class="tiny-heart">♥</span></div>
+  <p class="subtext">I was hoping you'd say yes ✨</p>
+  <form method="post" class="invite-actions">{% csrf_token %}
+    <button class="button yes-button" type="submit">YES!! 💞</button>
+    <button class="button no-button" type="button" id="no-button">no 🙈</button>
+  </form>
+  <p class="microcopy" id="no-message">the other button is a little shy...</p>
+</section>
+{% endblock %}
