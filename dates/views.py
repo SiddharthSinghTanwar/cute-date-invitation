@@ -104,6 +104,7 @@ def _event_details(request):
     ride_text = "Yes please 💚" if ride == "yes" else "I'm good 💙"
     return idea, date_text, slot, ride_text
 
+
 def _message(request):
     idea, date_text, slot, ride_text = _event_details(request)
 
@@ -123,6 +124,7 @@ def _message(request):
         "Can't wait!!\n"
         f"— {config.INVITER_NAME}"
     )
+
 
 def celebration(request):
     if not request.session.get("ride"):
